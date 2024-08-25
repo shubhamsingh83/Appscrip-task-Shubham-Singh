@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Navbar  from './components/Navbar'; 
+import Hero from './components/Hero';
+import Filter from './components/Filter';
+import Products from './components/Products';
+import Footer from './components/Footer';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const[showFilter,setShowFilter] = useState(false);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Hero/>
+      <Filter setShowFilter={setShowFilter} showFilter={showFilter} />
+      <Products showFilter={showFilter} />
+      <Footer/>
+         
     </div>
   );
 }
